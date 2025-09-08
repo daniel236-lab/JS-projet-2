@@ -6,6 +6,143 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        function multiplicationTable(number) {
+  for (let i = 1; i <= 12; i++) {
+    console.log(`${number} x ${i} = ${number * i}`);
+  }
+}
+    </script>
+    <script>
+        function reverseWord(word) {
+  let reversed = "";
+  for (let i = word.length - 1; i >= 0; i--) {
+    reversed += word[i];
+  }
+  console.log(reversed);
+}
+    </script>
+    <script>
+        function countLetters(sentence) {
+  let vowels = 0;
+  let consonants = 0;
+  let vowelSet = "aeiouAEIOU";
+
+  for (let char of sentence) {
+    if (/[a-zA-Z]/.test(char)) {   // check if character is a letter
+      if (vowelSet.includes(char)) {
+        vowels++;
+      } else {
+        consonants++;
+      }
+    }
+  }
+
+  console.log(`Vowels: ${vowels}, Consonants: ${consonants}`);
+}
+    </script>
+    <script>
+        function countWord(sentence, searchWord) {
+  // Split sentence into words by spaces and punctuation
+  let words = sentence.split(/\W+/);
+  let count = 0;
+
+  for (let word of words) {
+    if (word.toLowerCase() === searchWord.toLowerCase()) {
+      count++;
+    }
+  }
+
+  console.log(`Word appears ${count} ${count === 1 ? "time" : "times"}`);
+}
+
+// Example usage:
+countWord("I love JS, JS is cool", "JS");
+
+    </script>
+    <script>
+        function findMinMax(numbers) {
+  if (numbers.length === 0) {
+    console.log("Array is empty");
+    return;
+  }
+
+  let min = numbers[0];
+  let max = numbers[0];
+
+  for (let num of numbers) {
+    if (num < min) {
+      min = num;
+    }
+    if (num > max) {
+      max = num;
+    }
+  }
+
+  console.log(`Smallest: ${min}, Largest: ${max}`);
+}
+
+// Example usage:
+findMinMax([3, 7, 2, 9, 4, 1]);
+
+    </script>
+    <script>
+        function checkPassword(password) {
+  if (password.length < 6) {
+    console.log("Weak");
+  } else if (password.length <= 10) {
+    console.log("Medium");
+  } else {
+    // Check if password contains at least one digit
+    if (/\d/.test(password)) {
+      console.log("Strong");
+    } else {
+      console.log("Medium"); // Long but no number
+    }
+  }
+}
+
+// Example usage:
+checkPassword("abc");          // Weak
+checkPassword("mypassword");   // Medium
+checkPassword("mypassword123");// Strong
+
+    </script>
+    <script>
+        function isPrime(number) {
+  if (number <= 1) return false;   // 0, 1 and negatives are not prime
+  if (number === 2) return true;   // 2 is prime
+  if (number % 2 === 0) return false; // even numbers > 2 are not prime
+
+  // Only check odd divisors up to √number
+  for (let i = 3; i <= Math.sqrt(number); i += 2) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+// Example usage:
+console.log(isPrime(7));  // true
+console.log(isPrime(10)); // false
+
+    </script>
+    <script>
+        function fibonacci(n) {
+  let a = 0, b = 1;
+
+  for (let i = 0; i < n; i++) {
+    console.log(a);
+    let next = a + b;
+    a = b;
+    b = next;
+  }
+}
+
+// Example usage:
+fibonacci(6);
+
+    </script>
 </body>
 </html>
